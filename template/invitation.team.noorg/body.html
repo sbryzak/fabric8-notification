@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>You have been invited to join the {{.teamName}} team</title>
+  <title>You have been invited to join the {{.custom.teamName}} team</title>
   <style>
     tr td ul li img {
       max-width: 500px;
@@ -56,8 +56,8 @@
     width: 95%;
     padding: 15px;
     ">
-        You have been invited by {{.inviter}} to join the <b>{{.teamName}}</b> team. 
-        This team is part of the <b>{{.spaceName}}</b> space.
+        You have been invited by {{.custom.inviter}} to join the <b>{{.custom.teamName}}</b> team. 
+        This team is part of the <b>{{.custom.spaceName}}</b> space.
     </p>
 
     <p style="

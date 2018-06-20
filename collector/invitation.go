@@ -24,10 +24,11 @@ func Invitation(ctx context.Context, c *api.Client, userID uuid.UUID) ([]Receive
 	var users []uuid.UUID
 
 	users = append(users, userID)
-	resolved, err := resolveAllUsers(ctx, witClient, SliceUniq(users), nil, true)
-	if err != nil {
-		return nil, nil, err
-	}
-	return resolved, values, nil
+	//resolved, err := resolveAllUsers(ctx, witClient, SliceUniq(users), nil, true)
+	//if err != nil {
+//		return nil, nil, err
+//	}
+	//return resolved, values, nil
+	return nil, values, nil
 }
 

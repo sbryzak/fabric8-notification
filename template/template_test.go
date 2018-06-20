@@ -249,3 +249,47 @@ func TestRenderEmailUpdate(t *testing.T) {
 	require.NoError(t, err)
 	assert.True(t, strings.Contains(body, "https://verift.url.openshift.io"))
 }
+
+func TestRenderInvitationSpaceNoorg(t *testing.T) {
+	reg := template.AssetRegistry{}
+
+	template, exist := reg.Get("invitation.space.noorg")
+	assert.True(t, exist)
+
+	vars := map[string]interface{}{}
+	vars["custom"] = map[string]interface{} {
+		"inviter": "John Smith",
+		"spaceName": "Customer Orders",
+		"roleNames": "Contributor, Project Lead",
+		"acceptURL": "http://openshift.io/invitations/accept/12345-ABCDE-FFFFF-99999-88888",
+	}
+
+	_, body, _, err := template.Render(addGlobalVars(vars))
+	require.NoError(t, err)
+
+	assert.True(t, strings.Contains(body, "http://openshift.io/invitations/accept/12345-ABCDE-FFFFF-99999-88888"))
+
+	//ioutil.WriteFile("../invitation-space.html", []byte(body), os.FileMode(0777))
+}
+
+func TestRenderInvitationTeamNoorg(t *testing.T) {
+	reg := template.AssetRegistry{}
+
+	template, exist := reg.Get("invitation.team.noorg")
+	assert.True(t, exist)
+
+	vars := map[string]interface{}{}
+	vars["custom"] = map[string]interface{} {
+		"teamName": "Developers",
+		"inviter": "John Smith",
+		"spaceName": "Financial Backend",
+		"acceptURL": "http://openshift.io/invitations/accept/12345-ABCDE-FFFFF-99999-77777",
+	}
+
+	_, body, _, err := template.Render(addGlobalVars(vars))
+	require.NoError(t, err)
+
+	assert.True(t, strings.Contains(body, "http://openshift.io/invitations/accept/12345-ABCDE-FFFFF-99999-77777"))
+
+	//ioutil.WriteFile("../invitation-team.html", []byte(body), os.FileMode(0777))
+}
