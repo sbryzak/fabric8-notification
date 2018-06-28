@@ -85,7 +85,9 @@ func generate(authClient *authapi.Client, c *api.Client, id, tmplName string) er
 	}
 
 	if err != nil {
-		return err
+		if len(vars) == 0 {
+			return err
+		}
 	}
 
 	fileName, err := filepath.Abs("tmp/" + tmplName + "-" + id + ".html")
