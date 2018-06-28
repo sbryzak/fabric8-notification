@@ -46,6 +46,8 @@ func main() {
 	testdata = append(testdata, data{"51d968b1-b9e5-4ec1-884a-ff256902c753", "comment.update"})
 	testdata = append(testdata, data{"3383826c-51e4-401b-9ccd-b898f7e2397d", "user.email.update"})
 
+
+
 	fmt.Println("Generating test templates..")
 	fmt.Println("")
 

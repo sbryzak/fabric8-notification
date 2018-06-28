@@ -15,8 +15,6 @@ import (
 	"github.com/goadesign/goa/uuid"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"io/ioutil"
-	"os"
 )
 
 const (
@@ -271,7 +269,7 @@ func TestRenderInvitationSpaceNoorg(t *testing.T) {
 
 	assert.True(t, strings.Contains(body, "http://openshift.io/invitations/accept/12345-ABCDE-FFFFF-99999-88888"))
 
-	ioutil.WriteFile("../invitation-space.html", []byte(body), os.FileMode(0777))
+	//ioutil.WriteFile("../invitation-space.html", []byte(body), os.FileMode(0777))
 }
 
 func TestRenderInvitationTeamNoorg(t *testing.T) {
