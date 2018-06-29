@@ -136,7 +136,7 @@ func Comment(ctx context.Context, authClient *authapi.Client, c *api.Client, col
 	if sc != nil {
 		users = append(users, collectSpaceCollaboratorUsers(sc)...)
 
-		resolved, err := resolveAllUsers(ctx, authClient, SliceUniq(users), sc.Data, false)
+		resolved, err = resolveAllUsers(ctx, authClient, SliceUniq(users), sc.Data, false)
 		if err != nil {
 			errors = append(errors, err)
 		}
