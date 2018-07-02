@@ -114,8 +114,8 @@ func main() {
 	resolvers.Register("comment.create", collector.ConfiguredVars(config, collector.NewCommentResolver(authClient, witClient)), nil)
 	resolvers.Register("comment.update", collector.ConfiguredVars(config, collector.NewCommentResolver(authClient, witClient)), nil)
 	resolvers.Register("user.email.update", collector.ConfiguredVars(config, collector.NewUserResolver(authClient)), validator.ValidateUser)
-	resolvers.Register("invitation.team.noorg", collector.ConfiguredVars(config, nil), nil)
-	resolvers.Register("invitation.space.noorg", collector.ConfiguredVars(config, nil), nil)
+	resolvers.Register("invitation.team.noorg", nil, nil)
+	resolvers.Register("invitation.space.noorg", nil, nil)
 
 	typeRegistry := &template.AssetRegistry{}
 	service := goa.New("notification")
