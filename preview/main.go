@@ -85,9 +85,9 @@ func generate(authClient *authapi.Client, c *api.Client, id, tmplName string) er
 	} else if strings.HasPrefix(tmplName, "invitation") {
 		vars = make(map[string]interface{})
 		vars["custom"] = map[string]interface{}{
-			"inviter": "Albert Einstein",
+			"inviter":   "Albert Einstein",
 			"spaceName": "Physics Research Club",
-			"teamName": "Temporal Dynamics",
+			"teamName":  "Temporal Dynamics",
 			"roleNames": "Scientist, Researcher",
 			"acceptURL": "http://openshift.io/invitations/accept/12345-ABCDE-FFFFF-99999-88888",
 		}
