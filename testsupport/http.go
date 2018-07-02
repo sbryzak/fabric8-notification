@@ -1,7 +1,7 @@
 package testsupport
 
 import (
-	"context"
+	"github.com/fabric8-services/fabric8-notification/rest"
 	"net/http"
 )
 
@@ -12,7 +12,7 @@ type DummyHttpClient struct {
 }
 
 type DummyHttpDoer struct {
-	*HttpClientDoer
+	*rest.HttpClientDoer
 	Client *DummyHttpClient
 }
 
@@ -25,6 +25,6 @@ func (c *DummyHttpClient) Do(req *http.Request) (*http.Response, error) {
 
 func NewDummyHttpDoer() *DummyHttpDoer {
 	client := &DummyHttpClient{}
-	doer := &HttpClientDoer{HttpClient: client}
+	doer := &rest.HttpClientDoer{HttpClient: client}
 	return &DummyHttpDoer{HttpClientDoer: doer, Client: client}
 }
